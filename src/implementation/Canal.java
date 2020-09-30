@@ -7,7 +7,7 @@ import api.ObserverdeCapteur;
 public class Canal implements Capteur, ObserverdeCapteur {
     @Override
     public void attach(Observer o) {
-        
+
     }
 
     @Override
