@@ -1,4 +1,4 @@
-package proxy;
+package api;
 
 public interface Capteur {
 }

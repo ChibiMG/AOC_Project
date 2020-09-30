@@ -1,4 +1,4 @@
-package strategy;
+package api;
 
 public interface AlgoDiffusion {
 }
