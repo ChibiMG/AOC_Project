@@ -24,4 +24,9 @@ public class Canal implements Capteur, ObserverdeCapteur {
     public void tick() {
 
     }
+
+    @Override
+    public void update(Capteur subject) {
+
+    }
 }
