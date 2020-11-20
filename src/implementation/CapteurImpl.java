@@ -4,6 +4,15 @@ import api.Capteur;
 import api.Observer;
 
 public class CapteurImpl implements Capteur {
+
+    private int value;
+    private boolean lock;
+
+    public CapteurImpl() {
+        value = 0;
+        lock = false;
+    }
+
     @Override
     public void attach(Observer o) {
 
@@ -16,11 +25,11 @@ public class CapteurImpl implements Capteur {
 
     @Override
     public int getValue() {
-        return 0;
+        return value;
     }
 
     @Override
     public void tick() {
-
+        value++;
     }
 }
