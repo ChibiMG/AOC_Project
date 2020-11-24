@@ -1,12 +1,15 @@
 package implementation;
 
-import api.Capteur;
-import api.Observer;
+import api.*;
+
+import java.util.Collection;
 
 public class CapteurImpl implements Capteur {
 
     private int value;
     private boolean lock;
+
+    private Collection<ObserverdeCapteur> observerdeCapteurs;
 
     public CapteurImpl() {
         value = 0;
@@ -14,12 +17,12 @@ public class CapteurImpl implements Capteur {
     }
 
     @Override
-    public void attach(Observer o) {
+    public void attach(ObserverAsync o) {
 
     }
 
     @Override
-    public void detach(Observer o) {
+    public void detach(ObserverAsync o) {
 
     }
 
@@ -30,6 +33,24 @@ public class CapteurImpl implements Capteur {
 
     @Override
     public void tick() {
-        value++;
+        if (!lock){
+            value++;
+        }
+    }
+
+    public boolean isLock() {
+        return lock;
+    }
+
+    public void setLock(boolean lock) {
+        this.lock = lock;
+    }
+
+    public Collection<ObserverdeCapteur> getObserverdeCapteurs() {
+        return observerdeCapteurs;
+    }
+
+    public void setObserverdeCapteurs(Collection<ObserverdeCapteur> observerdeCapteurs) {
+        this.observerdeCapteurs = observerdeCapteurs;
     }
 }

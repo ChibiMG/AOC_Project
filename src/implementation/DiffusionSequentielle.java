@@ -3,8 +3,9 @@ package implementation;
 import api.AlgoDiffusion;
 
 public class DiffusionSequentielle implements AlgoDiffusion {
+
     @Override
-    public void configure() {
+    public void configure(CapteurImpl capteur) {
 
     }
 

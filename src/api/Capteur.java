@@ -6,13 +6,13 @@ public interface Capteur {
      *
      * @param o
      */
-    public void attach(Observer o);
+    public void attach(ObserverAsync o);
 
     /**
      *
      * @param o
      */
-    public void detach(Observer o);
+    public void detach(ObserverAsync o);
 
     /**
      *
