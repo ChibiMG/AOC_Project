@@ -2,11 +2,7 @@ package api;
 
 public interface ObserverdeCapteur {
 
-    /**
-     *
-     * @param subject
-     */
-    public void update(Capteur subject);
+    public int getValue();
 
     
 
