@@ -1,24 +1,12 @@
 package api;
 
-public interface Capteur {
-
-    /**
-     *
-     * @param o
-     */
-    public void attach(ObserverAsync o);
-
-    /**
-     *
-     * @param o
-     */
-    public void detach(ObserverAsync o);
+public interface Capteur extends CapteurAsync, Subject {
 
     /**
      *
      * @return
      */
-    public int getValue();
+    public Integer getValue();
 
     /**
      * Increment the counter

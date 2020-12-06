@@ -1,8 +1,12 @@
 package implementation;
 
-import api.*;
+import api.Capteur;
+import api.Observer;
+import api.ObserverAsync;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.concurrent.ExecutionException;
 
 public class CapteurImpl implements Capteur {
 
@@ -14,28 +18,18 @@ public class CapteurImpl implements Capteur {
     //a 0 on puisse delock
     private int compteur;
 
+    //il n'utilise pas les futures
     private Collection<ObserverAsync> observerAsyncs;
 
     public CapteurImpl() {
         value = 0;
         lock = false;
         compteur = 0;
-    }
-
-    //On ajoute l'observer o aux observer du capteur
-    @Override
-    public void attach(ObserverAsync o) {
-        observerAsyncs.add(o);
-    }
-
-    //on enlève l'observer o aux observer du capteur
-    @Override
-    public void detach(ObserverAsync o) {
-        observerAsyncs.remove(o);
+        observerAsyncs = new ArrayList<>();
     }
 
     @Override
-    public int getValue() {
+    public Integer getValue() {
         compteur--;
         if (compteur == 0) {
             lock = false;
@@ -48,7 +42,13 @@ public class CapteurImpl implements Capteur {
     public void tick() {
         if (!lock){
             value++;
-            observerAsyncs.forEach(observerAsync -> observerAsync.update());
+            observerAsyncs.forEach(observerAsync -> {
+                try {
+                    observerAsync.update(this);
+                } catch (ExecutionException | InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
             lock = true;
             compteur = observerAsyncs.size();
         }
@@ -61,4 +61,16 @@ public class CapteurImpl implements Capteur {
     public void setLock(boolean lock) {
         this.lock = lock;
     }
+
+    //On ajoute l'observer o aux observer du capteur
+    public void attach(Observer o) {
+        assert o instanceof ObserverAsync;
+        observerAsyncs.add((ObserverAsync) o);
+    }
+
+    //on enlève l'observer o aux observer du capteur
+    public void detach(Observer o) {
+        observerAsyncs.remove(o);
+    }
+
 }

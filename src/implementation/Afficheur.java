@@ -1,10 +1,18 @@
 package implementation;
 
-import api.Capteur;
+import api.CapteurAsync;
+import api.ObserverAsync;
 
-public class Afficheur implements ObserverdeCapteur {
+import java.util.concurrent.ExecutionException;
+
+public class Afficheur implements ObserverAsync {
+
     @Override
-    public void update(Capteur subject) {
-
+    public void update(CapteurAsync capteurAsync) {
+        try {
+            capteurAsync.getValue();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 }
