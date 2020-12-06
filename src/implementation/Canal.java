@@ -2,16 +2,19 @@ package implementation;
 
 import api.Capteur;
 import api.Observer;
-import api.ObserverdeCapteur;
+import api.ObserverAsync;
 
-public class Canal implements Capteur, ObserverdeCapteur {
+import java.util.concurrent.Future;
+
+public class Canal implements Capteur, ObserverAsync {
+
     @Override
-    public void attach(Observer o) {
+    public void attach(ObserverAsync o) {
 
     }
 
     @Override
-    public void detach(Observer o) {
+    public void detach(ObserverAsync o) {
 
     }
 
@@ -26,7 +29,7 @@ public class Canal implements Capteur, ObserverdeCapteur {
     }
 
     @Override
-    public void update(Capteur subject) {
-
+    public Future update() {
+        return null;
     }
 }

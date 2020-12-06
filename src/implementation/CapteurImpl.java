@@ -9,12 +9,17 @@ public class CapteurImpl implements Capteur {
     private int value;
     private boolean lock;
 
-    private Collection<ObserverdeCapteur> observerdeCapteurs;
+    //compteur en attendant de trouver mieux : permet de décrémenter
+    //le nb d'oberser a voir fait getValue() pour que lorsqu'il est
+    //a 0 on puisse delock
+    private int compteur;
+
     private Collection<ObserverAsync> observerAsyncs;
 
     public CapteurImpl() {
         value = 0;
         lock = false;
+        compteur = 0;
     }
 
     //On ajoute l'observer o aux observer du capteur
@@ -31,6 +36,10 @@ public class CapteurImpl implements Capteur {
 
     @Override
     public int getValue() {
+        compteur--;
+        if (compteur == 0) {
+            lock = false;
+        }
         return value;
     }
 
@@ -41,6 +50,7 @@ public class CapteurImpl implements Capteur {
             value++;
             observerAsyncs.forEach(observerAsync -> observerAsync.update());
             lock = true;
+            compteur = observerAsyncs.size();
         }
     }
 
@@ -50,7 +60,5 @@ public class CapteurImpl implements Capteur {
 
     public void setLock(boolean lock) {
         this.lock = lock;
-    }
-
     }
 }
