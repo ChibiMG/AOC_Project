@@ -4,6 +4,8 @@ import api.AlgoDiffusion;
 
 public class DiffusionAtomique implements AlgoDiffusion {
 
+    //TODO
+
     private CapteurImpl capteur;
 
     @Override

@@ -32,10 +32,10 @@ public class Canal implements CapteurAsync, ObserverAsync {
     //Etre plus proche du diag de class du TD
     //Pour le future, il est cantonné au scheduler
     //On ne renvoie pas un future, mais la valeur qu'il renvoie quand il est pret
-    //TODO utiliser GetValue
     @Override
     public Integer getValue() throws ExecutionException, InterruptedException {
-        return scheduledExecutorService.schedule(() -> capteur.getValue(), random.nextInt(500), TimeUnit.MILLISECONDS).get();
+        GetValue getValue = new GetValue(capteur);
+        return scheduledExecutorService.schedule(getValue, random.nextInt(random.nextInt()), TimeUnit.MILLISECONDS).get();
     }
 
     //On ne renvoie pas un future (cf td) mais rien
@@ -45,6 +45,6 @@ public class Canal implements CapteurAsync, ObserverAsync {
     @Override
     public void update(CapteurAsync capteurAsync) throws ExecutionException, InterruptedException {
         Update update = new Update(afficheur, this);
-        scheduledExecutorService.schedule(update , random.nextInt(500), TimeUnit.MILLISECONDS).get();
+        scheduledExecutorService.schedule(update , random.nextInt(random.nextInt()), TimeUnit.MILLISECONDS).get();
     }
 }

@@ -7,7 +7,7 @@ public interface AlgoDiffusion {
     /**
      *
      */
-    public void configure(CapteurImpl capteur);
+    public void configure(CapteurImpl capteurImpl);
 
     /**
      *
