@@ -6,6 +6,7 @@ import api.ObserverAsync;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class CapteurImpl implements Capteur {
@@ -73,4 +74,11 @@ public class CapteurImpl implements Capteur {
         observerAsyncs.remove(o);
     }
 
+    public Collection getObs() {
+        return observerAsyncs;
+    }
+
+    public void setObs(List canaux){
+        this.observerAsyncs = canaux;
+    }
 }
