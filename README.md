@@ -2,7 +2,7 @@
 ## M2 MIAGE - Université Rennes 1 - Maud Garçon & Emmanuel Chauvel
 
 Ce projet a pour but de nous faire comprendre et appliquer les design partterns vu en AOC.
-Vous trouverez dans ce Git le code source documenté ainsi qu'une version executable de ceui-ci.
+Vous trouverez dans ce Git le code source documenté ainsi qu'une version executable de celui-ci en .jar.
 
 ### 1. Conception
 #### a. Base du projet
