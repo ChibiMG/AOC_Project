@@ -1,4 +1,4 @@
-#Projet Capteur/Canal/Afficheur - AOC
+# Projet Capteur/Canal/Afficheur - AOC
 ## M2 MIAGE - Université Rennes 1 - Maud Garçon & Emmanuel Chauvel
 
 Ce projet a pour but de nous faire comprendre et appliquer les design partterns vu en AOC.
