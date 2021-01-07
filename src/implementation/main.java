@@ -13,6 +13,7 @@ public class main  {
 
     static void execDiffusion(CapteurImpl capteur) throws InterruptedException {
 
+
         Afficheur afficheur1 = new Afficheur();
         Afficheur afficheur2 = new Afficheur();
         Afficheur afficheur3 = new Afficheur();

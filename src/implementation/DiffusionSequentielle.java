@@ -7,6 +7,7 @@ import java.util.List;
 
 public class DiffusionSequentielle implements AlgoDiffusion {
 
+
     private CapteurImpl capteur;
     private List<CapteurAsync> canals;
     private Integer value;
