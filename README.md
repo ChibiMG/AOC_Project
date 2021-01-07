@@ -17,6 +17,8 @@ Le projet a pour objectif de mettre en oeuvre du parallélisme d'Observer et il 
     - la diffusion séquentielle
     - la diffusion par époque
 
+![alt text](https://github.com/ChibiMG/AOC_Project/blob/master/Images/schema_aoc.png)
+
 #### b. Diagrammes de class global
 
 #### c. Diagramme de séquence de la difusion atomique
