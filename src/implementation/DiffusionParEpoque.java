@@ -1,13 +1,17 @@
 package implementation;
 
 import api.AlgoDiffusion;
+import api.ObserverAsync;
+
+import java.util.Collection;
+import java.util.List;
 
 public class DiffusionParEpoque implements AlgoDiffusion {
 
-    //TODO
+
 
     @Override
-    public void configure(CapteurImpl capteur) {
+    public void configure(CapteurImpl capteurImpl, Collection<ObserverAsync> canals) {
 
     }
 

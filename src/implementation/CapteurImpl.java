@@ -1,16 +1,16 @@
 package implementation;
 
+import api.AlgoDiffusion;
 import api.Capteur;
 import api.Observer;
 import api.ObserverAsync;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class CapteurImpl implements Capteur {
-
+    private AlgoDiffusion algo;
     private int value;
     private boolean lock;
 
@@ -22,15 +22,18 @@ public class CapteurImpl implements Capteur {
     //il n'utilise pas les futures
     private Collection<ObserverAsync> observerAsyncs;
 
-    public CapteurImpl() {
+    public CapteurImpl(AlgoDiffusion algo) {
         value = 0;
         lock = false;
         compteur = 0;
         observerAsyncs = new ArrayList<>();
+        this.algo = algo;
+        algo.configure(this, this.observerAsyncs);
     }
 
     @Override
     public Integer getValue() {
+        System.out.println("getValue capteurImpl");
         compteur--;
         if (compteur == 0) {
             lock = false;
@@ -41,6 +44,7 @@ public class CapteurImpl implements Capteur {
     //lors du tick on dit au observer qu'on a update le tick
     @Override
     public void tick() {
+        this.algo.execute();
         if (!lock){
             value++;
             observerAsyncs.forEach(observerAsync -> {
@@ -57,6 +61,10 @@ public class CapteurImpl implements Capteur {
 
     public boolean isLock() {
         return lock;
+    }
+
+    public AlgoDiffusion getAlgo() {
+        return algo;
     }
 
     public void setLock(boolean lock) {
@@ -78,7 +86,7 @@ public class CapteurImpl implements Capteur {
         return observerAsyncs;
     }
 
-    public void setObs(List canaux){
+    public void setObs(Collection<ObserverAsync> canaux){
         this.observerAsyncs = canaux;
     }
 }

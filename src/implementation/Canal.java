@@ -23,7 +23,6 @@ public class Canal implements CapteurAsync, ObserverAsync {
         this.capteur = capteur;
         this.random = new Random();
         //TODO
-        this.scheduledExecutorService = null;
     }
 
     //On ne renvoie pas un future (cf td) mais Integer
@@ -35,6 +34,7 @@ public class Canal implements CapteurAsync, ObserverAsync {
     @Override
     public Integer getValue() throws ExecutionException, InterruptedException {
         GetValue getValue = new GetValue(capteur);
+        System.out.println("getValue Canal");
         return scheduledExecutorService.schedule(getValue, random.nextInt(random.nextInt()), TimeUnit.MILLISECONDS).get();
     }
 
