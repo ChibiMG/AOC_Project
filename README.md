@@ -20,6 +20,15 @@ Le projet a pour objectif de mettre en oeuvre du parallélisme d'Observer et il 
 ![alt text](https://github.com/ChibiMG/AOC_Project/blob/master/Images/schema_aoc.png)
 
 #### b. Diagrammes de class global
+Diagramme de class avec les design patterns Strategy & Observer sur la diffusion Atomique
+
+Diagramme de class avec les design patterns Active Object & Proxy dans le sens update
+
+![alt text](https://github.com/ChibiMG/AOC_Project/blob/master/Images/diag_class_1_AO.png)
+
+Diagramme de class avec les design patterns Active Object & Proxy dans le sens getValue
+
+![alt text](https://github.com/ChibiMG/AOC_Project/blob/master/Images/diag_class_2_AO.png)
 
 #### c. Diagramme de séquence de la difusion atomique
 
