@@ -44,17 +44,17 @@ public class CapteurImpl implements Capteur {
     //lors du tick on dit au observer qu'on a update le tick
     @Override
     public void tick() {
-        this.algo.execute();
         if (!lock){
+            this.algo.execute();
             value++;
-            observerAsyncs.forEach(observerAsync -> {
+            /*observerAsyncs.forEach(observerAsync -> {
                 try {
+                    System.out.println("update lance");
                     observerAsync.update(this);
                 } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
                 }
-            });
-            lock = true;
+            });*/
             compteur = observerAsyncs.size();
         }
     }
@@ -82,7 +82,7 @@ public class CapteurImpl implements Capteur {
         observerAsyncs.remove(o);
     }
 
-    public Collection getObs() {
+    public Collection<ObserverAsync> getObs() {
         return observerAsyncs;
     }
 

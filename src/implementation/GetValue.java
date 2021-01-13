@@ -7,10 +7,12 @@ import java.util.concurrent.Callable;
 
 public class GetValue implements Callable<Integer> {
 
-    private  CapteurAsync capteurAsync;
+    private CapteurAsync capteur;
+    private ObserverAsync canal;
 
-    public GetValue(CapteurAsync capteurAsync) {
-        this.capteurAsync = capteurAsync;
+    public GetValue(CapteurAsync capteurAsync, ObserverAsync canal) {
+        this.capteur = capteurAsync;
+        this.canal = canal;
     }
 
     /**
@@ -20,6 +22,6 @@ public class GetValue implements Callable<Integer> {
      */
     @Override
     public Integer call() throws Exception {
-        return capteurAsync.getValue();
+        return capteur.getValue();
     }
 }

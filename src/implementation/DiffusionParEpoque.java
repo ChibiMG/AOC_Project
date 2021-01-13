@@ -1,6 +1,7 @@
 package implementation;
 
 import api.AlgoDiffusion;
+import api.CapteurAsync;
 import api.ObserverAsync;
 
 import java.util.Collection;
@@ -19,4 +20,9 @@ public class DiffusionParEpoque implements AlgoDiffusion {
     public void execute() {
 
     }
+
+    /*@Override
+    public void valueRead(CapteurAsync capteurAsync) {
+
+    }*/
 }

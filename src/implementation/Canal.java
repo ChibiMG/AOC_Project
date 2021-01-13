@@ -6,6 +6,7 @@ import api.ObserverAsync;
 
 import java.util.Random;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
@@ -22,7 +23,8 @@ public class Canal implements CapteurAsync, ObserverAsync {
         this.afficheur = afficheur;
         this.capteur = capteur;
         this.random = new Random();
-        //TODO
+        scheduledExecutorService = Executors.newScheduledThreadPool(2);
+
     }
 
     //On ne renvoie pas un future (cf td) mais Integer
@@ -33,9 +35,9 @@ public class Canal implements CapteurAsync, ObserverAsync {
     //On ne renvoie pas un future, mais la valeur qu'il renvoie quand il est pret
     @Override
     public Integer getValue() throws ExecutionException, InterruptedException {
-        GetValue getValue = new GetValue(capteur);
+        GetValue getValue = new GetValue(capteur, this);
         System.out.println("getValue Canal");
-        return scheduledExecutorService.schedule(getValue, random.nextInt(random.nextInt()), TimeUnit.MILLISECONDS).get();
+        return scheduledExecutorService.schedule(getValue, random.nextInt(500), TimeUnit.MILLISECONDS).get();
     }
 
     //On ne renvoie pas un future (cf td) mais rien
@@ -44,7 +46,8 @@ public class Canal implements CapteurAsync, ObserverAsync {
     //Etre plus proche du diag de class du TD
     @Override
     public void update(CapteurAsync capteurAsync) throws ExecutionException, InterruptedException {
+        System.out.println("update Canal");
         Update update = new Update(afficheur, this);
-        scheduledExecutorService.schedule(update , random.nextInt(random.nextInt()), TimeUnit.MILLISECONDS).get();
+        scheduledExecutorService.schedule(update , random.nextInt(500), TimeUnit.MILLISECONDS).get();
     }
 }

@@ -19,10 +19,10 @@ public class Afficheur implements ObserverAsync {
 
     @Override
     public void update(CapteurAsync capteurAsync) {
-        System.out.println("update capteur");
+        System.out.println("update afficheur");
         try {
             capteurAsync.getValue();
-            System.out.println("update capteur");
+            System.out.println("update afficheur ok");
             System.out.println(values.toString());
 
 
