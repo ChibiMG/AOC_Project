@@ -1,16 +1,6 @@
 package implementation;
 
-
-import api.AlgoDiffusion;
-import api.Capteur;
-import api.ObserverAsync;
-import implementation.*;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class main  {
-
+public class Main {
 
     static void execDiffusion(CapteurImpl capteur) throws InterruptedException {
 
