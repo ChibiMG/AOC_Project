@@ -31,6 +31,11 @@ public class DiffusionSequentielle implements AlgoDiffusion {
         }
     }
 
+    @Override
+    public void valueRead() {
+
+    }
+
     public Integer getVal() {
         return value;
     }

@@ -17,6 +17,9 @@ public interface AlgoDiffusion {
      */
     public void execute();
 
-    //public void valueRead(ObserverAsync observerAsync);
+    /**
+     *
+     */
+    public void valueRead();
 
 }

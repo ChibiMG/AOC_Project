@@ -3,8 +3,7 @@ package api;
 public interface Capteur extends CapteurAsync, Subject {
 
     /**
-     *
-     * @return
+     * @return the Capteur value
      */
     public Integer getValue();
 

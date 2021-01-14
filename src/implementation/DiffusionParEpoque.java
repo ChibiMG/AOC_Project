@@ -21,6 +21,11 @@ public class DiffusionParEpoque implements AlgoDiffusion {
 
     }
 
+    @Override
+    public void valueRead() {
+
+    }
+
     /*@Override
     public void valueRead(CapteurAsync capteurAsync) {
 

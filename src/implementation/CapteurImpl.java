@@ -10,22 +10,15 @@ import java.util.Collection;
 import java.util.concurrent.ExecutionException;
 
 public class CapteurImpl implements Capteur {
+
     private AlgoDiffusion algo;
     private int value;
     private boolean lock;
-
-    //compteur en attendant de trouver mieux : permet de décrémenter
-    //le nb d'oberser a voir fait getValue() pour que lorsqu'il est
-    //a 0 on puisse delock
-    private int compteur;
-
-    //il n'utilise pas les futures
     private Collection<ObserverAsync> observerAsyncs;
 
     public CapteurImpl(AlgoDiffusion algo) {
         value = 0;
         lock = false;
-        compteur = 0;
         observerAsyncs = new ArrayList<>();
         this.algo = algo;
         algo.configure(this, this.observerAsyncs);
@@ -33,59 +26,55 @@ public class CapteurImpl implements Capteur {
 
     @Override
     public Integer getValue() {
-        System.out.println("getValue capteurImpl");
-        compteur--;
-        if (compteur == 0) {
-            lock = false;
-        }
+        algo.valueRead();
         return value;
     }
 
-    //lors du tick on dit au observer qu'on a update le tick
     @Override
     public void tick() {
         if (!lock){
-            this.algo.execute();
             value++;
-            /*observerAsyncs.forEach(observerAsync -> {
-                try {
-                    System.out.println("update lance");
-                    observerAsync.update(this);
-                } catch (ExecutionException | InterruptedException e) {
-                    e.printStackTrace();
-                }
-            });*/
-            compteur = observerAsyncs.size();
+            this.algo.execute();
         }
     }
 
-    public boolean isLock() {
-        return lock;
-    }
-
-    public AlgoDiffusion getAlgo() {
-        return algo;
-    }
-
+    /**
+     * Set the loch of the Capteur
+     * @param lock
+     */
     public void setLock(boolean lock) {
         this.lock = lock;
     }
 
-    //On ajoute l'observer o aux observer du capteur
+    /**
+     * Attach an observer to the Capteur observers list
+     * @param o an Observer
+     */
     public void attach(Observer o) {
         assert o instanceof ObserverAsync;
         observerAsyncs.add((ObserverAsync) o);
     }
 
-    //on enlève l'observer o aux observer du capteur
+    /**
+     * Detachcan observer to the Capteur observers list
+     * @param o an Observer
+     */
     public void detach(Observer o) {
         observerAsyncs.remove(o);
     }
 
+    /**
+     * Get the list of Capteur observers
+     * @return Collection<ObserverAsync>
+     */
     public Collection<ObserverAsync> getObs() {
         return observerAsyncs;
     }
 
+    /**
+     * Set the list of Capteur observers
+     * @param canaux
+     */
     public void setObs(Collection<ObserverAsync> canaux){
         this.observerAsyncs = canaux;
     }
