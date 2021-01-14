@@ -7,11 +7,10 @@ import api.ObserverAsync;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.concurrent.ExecutionException;
 
 public class CapteurImpl implements Capteur {
 
-    private AlgoDiffusion algo;
+    private final AlgoDiffusion algo;
     private int value;
     private boolean lock;
     private Collection<ObserverAsync> observerAsyncs;
@@ -39,8 +38,8 @@ public class CapteurImpl implements Capteur {
     }
 
     /**
-     * Set the loch of the Capteur
-     * @param lock
+     * Set the lock of the Capteur
+     * @param lock of the Capteur
      */
     public void setLock(boolean lock) {
         this.lock = lock;
@@ -73,7 +72,7 @@ public class CapteurImpl implements Capteur {
 
     /**
      * Set the list of Capteur observers
-     * @param canaux
+     * @param canaux is capteur observers
      */
     public void setObs(Collection<ObserverAsync> canaux){
         this.observerAsyncs = canaux;

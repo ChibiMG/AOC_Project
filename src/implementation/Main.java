@@ -19,9 +19,7 @@ public class Main {
         capteur.attach(canal3);
         capteur.attach(canal4);
 
-        //for(int i=0; i==4; i++){
-            capteur.tick();
-        //}
+        capteur.tick();
 
         System.out.print("Afficheur 1 : ");
         afficheur1.displayTab();
@@ -50,8 +48,8 @@ public class Main {
         execDiffusion(capteur);
 
 
-        //System.out.println("----------------Diffusion séquentielle--------------");
-        //execDiffusion(new CapteurImpl(new DiffusionSequentielle()));
+        System.out.println("----------------Diffusion séquentielle--------------");
+        execDiffusion(new CapteurImpl(new DiffusionSequentielle()));
 
 
     }
