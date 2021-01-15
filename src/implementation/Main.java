@@ -1,8 +1,15 @@
 package implementation;
 
+import api.AlgoDiffusion;
+import api.Capteur;
+
+import java.util.concurrent.*;
+
 public class Main {
 
-    static void execDiffusion(CapteurImpl capteur) throws InterruptedException {
+    private static void execDiffusion(AlgoDiffusion diffusion) throws InterruptedException {
+
+        CapteurImpl capteur = new CapteurImpl(diffusion);
 
         Afficheur afficheur1 = new Afficheur();
         Afficheur afficheur2 = new Afficheur();
@@ -19,7 +26,12 @@ public class Main {
         capteur.attach(canal3);
         capteur.attach(canal4);
 
-        capteur.tick();
+        ScheduledExecutorService executor = Executors.newScheduledThreadPool(4);
+        ScheduledFuture<?> future = executor.scheduleAtFixedRate(() -> {capteur.tick();}, 15, 5, TimeUnit.MILLISECONDS);
+
+        Thread.sleep(11000);
+        future.cancel(false);
+        Thread.sleep(2500);
 
         System.out.print("Afficheur 1 : ");
         afficheur1.displayTab();
@@ -32,26 +44,14 @@ public class Main {
 
         System.out.print("Afficheur 4 : ");
         afficheur4.displayTab();
-
-        //AlgoDiffusion algo = capteur.getAlgo();
-        //Thread.sleep(1000);
     }
-
-
-
-
-
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("----------------Diffusion atomique------------------");
-        CapteurImpl capteur = new CapteurImpl(new DiffusionAtomique());
-        execDiffusion(capteur);
-
+        execDiffusion(new DiffusionAtomique());
 
         System.out.println("----------------Diffusion séquentielle--------------");
-        execDiffusion(new CapteurImpl(new DiffusionSequentielle()));
-
-
+        execDiffusion(new DiffusionSequentielle());
     }
 
 }
