@@ -19,7 +19,7 @@ public class Afficheur implements ObserverAsync {
     public void update(CapteurAsync capteurAsync) {
         try {
             values.add(capteurAsync.getValue());
-            System.out.println(values.toString());
+            //System.out.println(values.toString());
         }
         catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();

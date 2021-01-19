@@ -25,9 +25,9 @@ public class DiffusionSequentielle implements AlgoDiffusion {
         if (this.capteur.getObs().isEmpty()) {
             value = this.capteur.getValue();
             this.capteur.setObs(canals);
-            this.capteur.setLock(false);
+            this.capteur.setSequentialLock(false);
         } else {
-            this.capteur.setLock(true);
+            this.capteur.setSequentialLock(true);
         }
     }
 
