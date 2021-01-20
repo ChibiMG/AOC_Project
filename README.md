@@ -21,6 +21,7 @@ Le projet a pour objectif de mettre en oeuvre du parallélisme d'Observer et il 
 
 #### b. Diagrammes de class global
 Diagramme de class avec les design patterns Strategy & Observer sur la diffusion Atomique
+![alt text](https://github.com/ChibiMG/AOC_Project/blob/master/Images/diag_class_3_AO.png)
 
 Diagramme de class avec les design patterns Active Object & Proxy dans le sens update
 
@@ -31,12 +32,11 @@ Diagramme de class avec les design patterns Active Object & Proxy dans le sens g
 ![alt text](https://github.com/ChibiMG/AOC_Project/blob/master/Images/diag_class_2_AO.png)
 
 #### c. Diagramme de séquence de la difusion atomique
+![alt text](https://github.com/ChibiMG/AOC_Project/blob/master/Images/diag_seq_M1.png)
 
 #### d. Diagramme de séquence de la difusion séquentielle
+![alt text](https://github.com/ChibiMG/AOC_Project/blob/master/Images/diag_seq_M2.png)
 
 ### 2. Validation
 
 ? => résultats attendus et obtenus
-
-
-code source + javadoc + version executable
