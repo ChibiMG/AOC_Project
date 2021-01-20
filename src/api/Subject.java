@@ -1,17 +1,22 @@
 package api;
 
+/**
+ * Interface of Capteur
+ * @author Maud Garçon & Emmanuel Chauvel
+ */
+
 public interface Subject {
 
     /**
-     * @param o an Observer
      * Link the subject with the observer
+     * @param o an Observer
      */
-    public void attach(Observer o);
+    void attach(Observer o);
 
     /**
+     * Delete the link between the subject and the observer
      * @param o an Observer
-     * delete the link between the subject and the observer
      */
-    public void detach(Observer o);
+    void detach(Observer o);
 
 }

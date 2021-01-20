@@ -8,11 +8,31 @@ import api.ObserverAsync;
 import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ * Capteur increment a number to dispach in Afficheur
+ * @author Maud Garçon & Emmanuel Chauvel
+ */
+
 public class CapteurImpl implements Capteur {
 
+    /**
+     * The Algo's type associated to the Capteur
+     */
     private final AlgoDiffusion algo;
+
+    /**
+     * The actual value of the Capteur
+     */
     private int value;
+
+    /**
+     * The locker for the Capteur (use with the DiffusionAtomique)
+     */
     private boolean lock;
+
+    /**
+     * The ObserverAsync Collection of the Capteur
+     */
     private final Collection<ObserverAsync> observerAsyncs;
 
     public CapteurImpl(AlgoDiffusion algo) {
@@ -23,6 +43,9 @@ public class CapteurImpl implements Capteur {
         algo.configure(this, this.observerAsyncs);
     }
 
+    /**
+     * @return actual value of the Capteur
+     */
     public Integer getRawValue() {
         return value;
     }

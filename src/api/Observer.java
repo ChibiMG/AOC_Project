@@ -2,6 +2,11 @@ package api;
 
 import java.util.concurrent.ExecutionException;
 
+/**
+ * Interface of ObserverAsync
+ * @author Maud Garçon & Emmanuel Chauvel
+ */
+
 public interface Observer<T> {
 
     /**
@@ -10,6 +15,6 @@ public interface Observer<T> {
      * @throws ExecutionException
      * @throws InterruptedException
      */
-    public void update(T subject) throws ExecutionException, InterruptedException;
+    void update(T subject) throws ExecutionException, InterruptedException;
 
 }

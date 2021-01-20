@@ -5,14 +5,21 @@ import api.ObserverAsync;
 
 import java.util.concurrent.Callable;
 
-public class Update implements Callable<Void> {
-    /**
-     *
-     * @return
-     * @throws Exception
-     */
+/**
+ * The Update allow to report a value change
+ * @author Maud Garçon & Emmanuel Chauvel
+ */
 
+public class Update implements Callable<Void> {
+
+    /**
+     * The Afficheur that must be expected from the change
+     */
     private ObserverAsync observerAsync;
+
+    /**
+     * The Canal which signals the change
+     */
     private CapteurAsync capteurAsync;
 
     public Update(ObserverAsync observerAsync, CapteurAsync capteurAsync) {

@@ -2,6 +2,11 @@ package api;
 
 import java.util.concurrent.ExecutionException;
 
+/**
+ * Interface of Capteur & Canal
+ * @author Maud Garçon & Emmanuel Chauvel
+ */
+
 public interface CapteurAsync {
 
     /**
@@ -9,5 +14,5 @@ public interface CapteurAsync {
      * @throws ExecutionException
      * @throws InterruptedException
      */
-    public Integer getValue() throws ExecutionException, InterruptedException;
+    Integer getValue() throws ExecutionException, InterruptedException;
 }

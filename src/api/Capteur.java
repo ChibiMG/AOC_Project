@@ -1,15 +1,20 @@
 package api;
 
+/**
+ * Interface of CapteurImpl
+ * @author Maud Garçon & Emmanuel Chauvel
+ */
+
 public interface Capteur extends CapteurAsync, Subject {
 
     /**
      * @return the Capteur value
      */
-    public Integer getValue();
+    Integer getValue();
 
     /**
      * Increment the counter and call canals
      */
-    public void tick();
+    void tick();
 
 }

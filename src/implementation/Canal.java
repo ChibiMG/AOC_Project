@@ -10,11 +10,31 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Canal is communication channel between the Capteur and one Afficheur
+ * @author Maud Garçon & Emmanuel Chauvel
+ */
+
 public class Canal implements CapteurAsync, ObserverAsync {
 
+    /**
+     * The Canal's Afficheur
+     */
     private Afficheur afficheur;
+
+    /**
+     * The Canal's Capteur
+     */
     private Capteur capteur;
+
+    /**
+     * A random number for the bound on ScheduledExecutorService
+     */
     private Random random;
+
+    /**
+     * The Canal's ScheduledExecutorService
+     */
     private ScheduledExecutorService scheduledExecutorService;
 
     public Canal(Afficheur afficheur, Capteur capteur) {
