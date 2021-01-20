@@ -22,6 +22,6 @@ public interface AlgoDiffusion {
     /**
      * Permit to read the actual value
      */
-    public void valueRead();
+    public Integer valueRead();
 
 }

@@ -6,37 +6,43 @@ import api.ObserverAsync;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class DiffusionSequentielle implements AlgoDiffusion {
 
 
     private CapteurImpl capteur;
-    private Collection<ObserverAsync> canals;
+    private Collection<ObserverAsync> canaux;
     private Integer value;
+    private Integer compteur;
 
     @Override
     public void configure(CapteurImpl capteur, Collection<ObserverAsync> canaux) {
         this.capteur = capteur;
-        this.canals = canaux;
+        this.compteur = 0;
+        this.canaux = canaux;
     }
 
 
     public void execute() {
-        if (this.capteur.getObs().isEmpty()) {
-            value = this.capteur.getValue();
-            this.capteur.setObs(canals);
-            this.capteur.setSequentialLock(false);
-        } else {
-            this.capteur.setSequentialLock(true);
+        if (compteur == 0) {
+
+            value = capteur.getRawValue();
+            compteur = canaux.size();
+
+            canaux.forEach(observerAsync -> {
+                try {
+                    observerAsync.update(capteur);
+                } catch (ExecutionException | InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
         }
     }
 
     @Override
-    public void valueRead() {
-
-    }
-
-    public Integer getVal() {
+    public Integer valueRead() {
+        compteur--;
         return value;
     }
 }

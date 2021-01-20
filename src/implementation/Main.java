@@ -29,10 +29,12 @@ public class Main {
         capteur.attach(canal3);
         capteur.attach(canal4);
 
-        ScheduledExecutorService executor = Executors.newScheduledThreadPool(4);
-        ScheduledFuture<?> future = executor.scheduleAtFixedRate(capteur::tick, 1, 1, TimeUnit.MILLISECONDS);
+        ScheduledExecutorService executor = Executors.newScheduledThreadPool(10);
+        ScheduledFuture<?> future = executor.scheduleAtFixedRate(() -> {
+            new Thread(capteur::tick).start();
+        }, 1, 100, TimeUnit.MILLISECONDS);
 
-        Thread.sleep(55000);
+        Thread.sleep(15500);
         future.cancel(false);
         Thread.sleep(2500);
 

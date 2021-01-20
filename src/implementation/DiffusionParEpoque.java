@@ -22,8 +22,8 @@ public class DiffusionParEpoque implements AlgoDiffusion {
     }
 
     @Override
-    public void valueRead() {
-
+    public Integer valueRead() {
+        return 0;
     }
 
 }
