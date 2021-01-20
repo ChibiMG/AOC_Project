@@ -8,7 +8,7 @@ public interface Capteur extends CapteurAsync, Subject {
     public Integer getValue();
 
     /**
-     * Increment the counter
+     * Increment the counter and call canals
      */
     public void tick();
 

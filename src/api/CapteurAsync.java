@@ -5,7 +5,7 @@ import java.util.concurrent.ExecutionException;
 public interface CapteurAsync {
 
     /**
-     * @return the value
+     * @return the value corresponding of the last "tick"
      * @throws ExecutionException
      * @throws InterruptedException
      */
