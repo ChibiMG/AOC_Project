@@ -1,7 +1,7 @@
 # Projet Capteur/Canal/Afficheur - AOC
 ## M2 MIAGE - Université Rennes 1 - Maud Garçon & Emmanuel Chauvel
 
-Vous trouverez dans ce Git le code source documenté ainsi qu'une version executable de celui-ci en .jar.
+Vous trouverez dans ce Git le code source accompagné de sa Javadoc ainsi qu'une version executable de celui-ci en .jar.
 
 ### 1. Conception
 #### a. Base du projet
@@ -37,4 +37,4 @@ Diagramme de class avec les design patterns Active Object & Proxy dans le sens g
 
 ### 2. Validation
 
-résultats des tests
+résultats des tests ici avec des commentaires
