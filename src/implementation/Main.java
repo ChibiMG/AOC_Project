@@ -5,7 +5,7 @@ import api.AlgoDiffusion;
 import java.util.concurrent.*;
 
 /**
- * The Main of the programm
+ * The Main of the program
  * @author Maud Garçon & Emmanuel Chauvel
  */
 
@@ -36,9 +36,7 @@ public class Main {
 
         //Launch the Capteur's tick
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(4);
-        ScheduledFuture<?> future = executor.scheduleAtFixedRate(() -> {
-            new Thread(capteur::tick).start();
-        }, 1, 600, TimeUnit.MILLISECONDS);
+        ScheduledFuture<?> future = executor.scheduleAtFixedRate(() -> new Thread(capteur::tick).start(), 1, 600, TimeUnit.MILLISECONDS);
 
         //Stop the Capteur's tick
         Thread.sleep(20000);
