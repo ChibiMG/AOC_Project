@@ -1,6 +1,5 @@
-package implementation;
-
 import api.AlgoDiffusion;
+import implementation.*;
 
 import java.util.concurrent.*;
 
