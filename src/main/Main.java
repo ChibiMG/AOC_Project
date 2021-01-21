@@ -1,6 +1,7 @@
-package implementation;
+package main;
 
 import api.AlgoDiffusion;
+import implementation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 /**
- * The implementation.Update.Main of the program
+ * The Main of the program
  * @author Maud Garçon & Emmanuel Chauvel
  */
 

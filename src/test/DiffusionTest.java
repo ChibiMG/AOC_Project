@@ -2,17 +2,19 @@ package test;
 
 import implementation.DiffusionAtomique;
 import implementation.DiffusionSequentielle;
-import implementation.Main;
 import junit.framework.TestCase;
+import main.Main;
 import org.junit.Test;
 
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * The test class of the program
+ * @author Maud Garçon & Emmanuel Chauvel
+ */
+
 public class DiffusionTest extends TestCase {
-
-
-
 
     /**
      * Verify condition for diffusion Atomique
@@ -21,7 +23,7 @@ public class DiffusionTest extends TestCase {
     @Test
     public void testDiffusionAtomique() throws Exception {
         System.out.println("----------------Diffusion atomique------------------");
-        List<List<Integer>> result =Main.execDiffusion(new DiffusionAtomique());
+        List<List<Integer>> result = Main.execDiffusion(new DiffusionAtomique());
         boolean allValues = true;
         Iterator<List<Integer>> it = result.iterator();
 
@@ -49,7 +51,7 @@ public class DiffusionTest extends TestCase {
     @Test
     public void testDiffusionSequentielle()throws InterruptedException{
         System.out.println("----------------Diffusion séquentielle------------------");
-        List<List<Integer>> result =Main.execDiffusion(new DiffusionSequentielle());
+        List<List<Integer>> result = Main.execDiffusion(new DiffusionSequentielle());
         boolean equal = true;
         boolean increasing = true;
         Iterator<List<Integer>> it = result.iterator();
@@ -72,5 +74,4 @@ public class DiffusionTest extends TestCase {
 
         assertTrue(increasing && equal);
     }
-
 }

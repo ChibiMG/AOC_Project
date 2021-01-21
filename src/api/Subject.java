@@ -1,7 +1,5 @@
 package api;
 
-import api.Observer;
-
 /**
  * Interface of Capteur
  * @author Maud Garçon & Emmanuel Chauvel
