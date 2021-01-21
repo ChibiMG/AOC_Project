@@ -16,7 +16,7 @@ Le projet a pour objectif de mettre en oeuvre du parallélisme d'Observer et il 
 -   l'ensemble de politique de diffusion Observer comprenant 3 types de diffusions :
     - la diffusion atomique
     - la diffusion séquentielle
-    - la diffusion par époque
+    - la diffusion par époque (optionnelle)
 
 ![alt text](https://github.com/ChibiMG/AOC_Project/blob/master/Images/schema_aoc.png)
 
