@@ -1,9 +1,10 @@
 package implementation;
 
+import api.AlgoDiffusion;
 import api.CapteurAsync;
 import api.ObserverAsync;
 
-import java.util.concurrent.Callable;
+import java.util.concurrent.*;
 
 /**
  * The Update allow to report a value change
@@ -32,4 +33,5 @@ public class Update implements Callable<Void> {
         observerAsync.update(capteurAsync);
         return null;
     }
+
 }

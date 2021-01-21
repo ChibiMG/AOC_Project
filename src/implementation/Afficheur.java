@@ -36,6 +36,14 @@ public class Afficheur implements ObserverAsync {
     }
 
     /**
+     *
+     * @return liste of values
+     */
+    public List<Integer> getValues(){
+        return values;
+    }
+
+    /**
      * Function to display the table of values
      */
     public void displayTab(){
