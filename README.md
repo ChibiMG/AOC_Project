@@ -38,5 +38,5 @@ Diagramme de class avec les design patterns Active Object & Proxy dans le sens g
 
 ### 2. Validation
 Nous avons réalisé une classe de test permettant de comparer les résultats des Afficheurs :
-![alt text](https://github.com/ChibiMG/AOC_Project/blob/master/Images/Tests_AOC_Project.png)
+![alt text](https://github.com/ChibiMG/AOC_Project/blob/master/Images/Tests_AOC_project.PNG)
 
