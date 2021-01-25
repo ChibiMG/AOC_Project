@@ -16,7 +16,7 @@ Le projet a pour objectif de mettre en oeuvre du parallélisme d'Observer et il 
 -   l'ensemble de politique de diffusion Observer comprenant 3 types de diffusions :
     - la diffusion atomique
     - la diffusion séquentielle
-    - la diffusion par époque (optionnelle)
+    - la diffusion par époque
 
 ![alt text](https://github.com/ChibiMG/AOC_Project/blob/master/Images/schema_aoc.png)
 
@@ -39,4 +39,6 @@ Diagramme de class avec les design patterns Active Object & Proxy dans le sens g
 ### 2. Validation
 Nous avons réalisé une classe de test permettant de comparer les résultats des Afficheurs :
 ![alt text](https://github.com/ChibiMG/AOC_Project/blob/master/Images/Tests_AOC_project.PNG)
+
+Remarque : Pour la diffusion par époque, certains Afficheur peuvent être vide lors de l'éxécution. Cela vient de l'incohérence de cette diffusion. Si besoin, on peut relancer plusieurs fois le programmes pour avoir plusieurs échantillons.
 
