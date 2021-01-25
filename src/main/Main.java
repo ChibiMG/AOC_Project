@@ -45,11 +45,11 @@ public class Main {
 
         //Launch the Capteur's tick
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(4);
-        ScheduledFuture<?> future = executor.scheduleAtFixedRate(() -> new Thread(capteur::tick).start(), 1, 600, TimeUnit.MILLISECONDS);
+        ScheduledFuture<?> future = executor.scheduleAtFixedRate(() -> new Thread(capteur::tick).start(), 1, 500, TimeUnit.MILLISECONDS);
 
 
         //Stop the Capteur's tick
-        Thread.sleep(20000);
+        Thread.sleep(25000);
         future.cancel(false);
         Thread.sleep(2500);
 
@@ -85,8 +85,8 @@ public class Main {
         execDiffusion(new DiffusionSequentielle());
 
         //Launch the DiffusionParEpoque
-        //System.out.println("----------------Diffusion par époque----------------");
-        //execDiffusion(new DiffusionParEpoque());
+        System.out.println("----------------Diffusion par époque----------------");
+        execDiffusion(new DiffusionParEpoque());
     }
 
 }
